@@ -28,57 +28,65 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h1>
-<a id="cats--dogs--co" class="anchor" href="#cats--dogs--co" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cats &amp; Dogs &amp; Co</h1>
-
-<p>Cats &amp; Dogs &amp; Co (in further text CDC) is service intended for tracking your pets. </p>
+          <p>Cats &amp; Dogs &amp; Co (in further text CDC) is service intended for tracking your pets. </p>
 
 <p>Contrary to all other similar projects where you buy "tracking band" this is do-it-yourself project. We provide two Web Services (Soap JAX-WS) where you can get your data (to use in your application) or send your data from "Tracker".</p>
 
-<h2>
-<a id="tracking-software" class="anchor" href="#tracking-software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tracking Software</h2>
+<h1>
+<a id="tracking-software" class="anchor" href="#tracking-software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tracking Software</h1>
 
 <p>Most of companies allow you to buy their tracker and then you can follow it's location on their web site. Our service is not like that... We actually don't have display on Web, but you can use other means to get and see your data. (We might create simple Web site in the future where there will be possible to add user, animals and see location, but this is not planned at the moment)
 1. Making your own application and using supplied Web Services
-2. Use one of our application: 
+2. Use one of our applications: 
     2a) .NET application. This simple Windows application which can be used until our "official" application comes out. If you are Windows user 
         you can try this out, or else wait a little longer and 2b will be out. <em><strong>COMMING in November 2015.</strong></em>
     2b) Java application. Application for displaying location data, this is actually official application for this service. Client is open 
         source and can be extended by users (running on Sourceforge/GIT). <em><strong>COMMING IN 1st Quarter of 2016.</strong></em></p>
 
-<h2>
+<h1>
 <a id="tracker" class="anchor" href="#tracker" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Tracker</strong>
-</h2>
+</h1>
 
 <p>Like I said most companies have product which can be used for tracking your animal... we don't. Idea of whole project was to either build your own tracker, which can then send data to our service, or use old phone to do that for you.</p>
 
-<h3>
-<a id="use-your-old-android-phone" class="anchor" href="#use-your-old-android-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use your old (Android) phone</h3>
+<h2>
+<a id="use-your-old-android-phone" class="anchor" href="#use-your-old-android-phone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use your old (Android) phone</h2>
 
 <p>Now this is probably the cheapest sollution. Use your old Phone, or buy some cheap one (you can get cheap Android 4 phone for under 50 EUR). Phone needs to have GPS though. Most of old Android 4.x phones have that, but make sure before you get. Now you need "data SIM card" of one of your Mobile Phone Service Providers (you can get that cheap too in most countries and our android application. <em><strong>COMMING in November 2015.</strong></em></p>
 
-<h3>
-<a id="use-your-old-phone-not-android" class="anchor" href="#use-your-old-phone-not-android" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use your old phone (not Android)</h3>
+<h2>
+<a id="use-your-old-phone-not-android" class="anchor" href="#use-your-old-phone-not-android" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use your old phone (not Android)</h2>
 
 <p>For no other phones are supported, but since this is OSS you can build your own application and share it with others. What you need to do:</p>
 
 <ul>
 <li>retrieve Animal Id for specific Username and AnimalName</li>
 <li>create 60 seconds loop:<br>
-      + read GPS location
-      + write location to CatsAndDogsAndCoTransmiter Web Service (time is in long format - create String and parse it into long (for example: 20. April 2015 14:01:04 would be 20150420140104 - year(4)month(2)day(2)hour(2 - 24h format)minute(2)second(2))</li>
+    ** read GPS location
+    ** write location to CatsAndDogsAndCoTransmiter Web Service (time is in long format - create String and parse it into long (for example: 20. April 2015 14:01:04 would be 20150420140104 - year(4)month(2)day(2)hour(2 in 24h format)minute(2)second(2))</li>
 </ul>
 
 <p>If you decide to do this please share your code in our repository on git under (transmiter//). Trasnmiter name in case we get more implementation for specific type (Android, iPhone, etc)</p>
 
-<h3>
-<a id="build-your-own-transmitter" class="anchor" href="#build-your-own-transmitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build your own transmitter</h3>
-
-<p>If you are good with your hands you can try to build your own transmitter. There might be several options for you, but easiest and cheapest would probably be to use Arduino. Code for this will be added, when I get around to test this (I can't wait to get to it) and configuration should be something like (you can user other parts, but since this needs to be a small as possible this one should be OK): 
-COMMING SOON</p>
-
 <h2>
-<a id="how-much-does-it-cost" class="anchor" href="#how-much-does-it-cost" aria-hidden="true"><span class="octicon octicon-link"></span></a>How much does it cost</h2>
+<a id="build-your-own-transmitter" class="anchor" href="#build-your-own-transmitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build your own transmitter</h2>
+
+<p>If you are good with your hands you can try to build your own transmitter. There might be several options for you, but easiest and cheapest would probably be to use Arduino. Code for this will be added, when I get around to test this (I can't wait to get to it) and configuration should be something like (you can user other parts, but since this needs to be a small as possible this one should be OK): <em>[Contributed by johnwasser on forum.arduino.cc]</em></p>
+
+<ul>
+<li>SIM808 (GSM/GPRS/GPS) breakout board (or perhaps as alternative Adafruit FONA 808 - Mini Cellular GSM + GPS Breakout)</li>
+<li>Arduino Pro Mini (3.3V, 8MHz) or a raw ATmega328P</li>
+<li>LiPo charger breakout board.
+<em>Comment:</em> 3.7V LiPo cell can directly power the SIM808 and Pro Mini, saving the losses due to voltage regulation. You will probably want to keep your processor and SIM808 sleeping as much as possible.</li>
+</ul>
+
+<h1>
+<a id="how-much-does-it-cost" class="anchor" href="#how-much-does-it-cost" aria-hidden="true"><span class="octicon octicon-link"></span></a>How much does it cost</h1>
+
+<p>Now we are the most important question (for most people)... How much does it cost... Our service costs 2 EUR pro Month for one Animal. I would advise you to pay for longer period, so that your service is not denied when you need it. When you create your user, you will get demo account which we need to activate (you pay and when we receive payment we activate it, best is to send mail where you state your username and which animal you would like to track (you can have more animals, but wish to track perhaps just a single one)).</p>
+
+<h1>
+<a id="access-to-web-service" class="anchor" href="#access-to-web-service" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access to Web Service</h1>
 
 <p>COMMING SOON</p>
         </section>
